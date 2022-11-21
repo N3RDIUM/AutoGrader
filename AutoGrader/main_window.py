@@ -1,8 +1,13 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import os
 
-class Ui_AutoGrader(object):
+class MainWindow(object):
     def setupUi(self, AutoGrader):
+        """
+        Setup UI
+        :param AutoGrader:
+        :return:
+        """
         AutoGrader.setObjectName("AutoGrader")
         AutoGrader.setFixedSize(1200, 600)
         self.centralwidget = QtWidgets.QWidget(AutoGrader)
@@ -110,6 +115,11 @@ class Ui_AutoGrader(object):
         dialog.close()
 
     def retranslateUi(self, AutoGrader):
+        """
+        Retranslate UI
+        :param AutoGrader:
+        :return:
+        """
         _translate = QtCore.QCoreApplication.translate
         AutoGrader.setWindowTitle(_translate("AutoGrader", "AutoGrader"))
         self.label.setText(_translate("AutoGrader", "<html><head/><body><h1 align=\"center\" style=\" margin-top:18px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:xx-large; font-weight:700;\">AstroGrader</span></h1></body></html>"))
@@ -133,13 +143,3 @@ class Ui_AutoGrader(object):
             _translate("AutoGrader", "Coming soon!"))
         self.actionComing_soon_3.setText(
             _translate("AutoGrader", "Coming soon!"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    AutoGrader = QtWidgets.QMainWindow()
-    ui = Ui_AutoGrader()
-    ui.setupUi(AutoGrader)
-    AutoGrader.show()
-    sys.exit(app.exec())
