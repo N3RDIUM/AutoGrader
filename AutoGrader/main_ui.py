@@ -1,7 +1,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import os
 
-
 class Ui_AutoGrader(object):
     def setupUi(self, AutoGrader):
         AutoGrader.setObjectName("AutoGrader")
@@ -100,16 +99,13 @@ class Ui_AutoGrader(object):
         """
         dialog = QtWidgets.QFileDialog()
         dialog.create()
-        dialog.show()
+        dir = dialog.getExistingDirectory()
 
         while dialog.isVisible():
             QtWidgets.QApplication.processEvents()
         
-        if not dialog.selectedFiles():
-            dialog.close()
-            return
-        elif os.path.isdir(dialog.selectedFiles()[0]):
-            self.load_project_structure(dialog.selectedFiles()[0])
+        if os.path.isdir(dir):
+            self.load_project_structure(dir)
         
         dialog.close()
 
